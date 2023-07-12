@@ -1,0 +1,3 @@
+[submodule "Football-Manager"]
+	path = Football-Manager
+	url = https://github.com/havasr/Football-Manager.git
