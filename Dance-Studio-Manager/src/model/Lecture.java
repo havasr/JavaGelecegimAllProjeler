@@ -1,6 +1,7 @@
 package model;
 
 import java.util.List;
+import java.util.Set;
 
 public class Course {
 
@@ -12,7 +13,7 @@ public class Course {
 
     private int capacity;
 
-    private List<CourseScheduleTime> courseScheduleTimeList;
+    private Set<CourseScheduleTime> courseScheduleTimeSet;
 
     private List<Student> studentList;
 
@@ -48,12 +49,12 @@ public class Course {
         this.capacity = capacity;
     }
 
-    public List<CourseScheduleTime> getCourseScheduleTimeList() {
-        return courseScheduleTimeList;
+    public Set<CourseScheduleTime> getCourseScheduleTimeSet() {
+        return courseScheduleTimeSet;
     }
 
-    public void setCourseScheduleTimeList(List<CourseScheduleTime> courseScheduleTimeList) {
-        this.courseScheduleTimeList = courseScheduleTimeList;
+    public void setCourseScheduleTimeSet(Set<CourseScheduleTime> courseScheduleTimeSet) {
+        this.courseScheduleTimeSet = courseScheduleTimeSet;
     }
 
     public List<Student> getStudentList() {
@@ -62,5 +63,17 @@ public class Course {
 
     public void setStudentList(List<Student> studentList) {
         this.studentList = studentList;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "name='" + name + '\'' +
+                ", instructor=" + instructor +
+                ", branch=" + branch +
+                ", capacity=" + capacity +
+                ", courseScheduleTimeSet=" + courseScheduleTimeSet +
+                ", studentList=" + studentList +
+                '}';
     }
 }
