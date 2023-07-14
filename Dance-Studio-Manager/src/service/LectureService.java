@@ -4,7 +4,7 @@ import model.*;
 
 import java.util.Set;
 
-public class CourseService {
+public class LectureService {
     public Lecture createCourse(String name, Branch branch, int capacity) {
         Lecture lecture = new Lecture();
         lecture.setName(name);
@@ -21,11 +21,11 @@ public class CourseService {
         lecture.setInstructor(instructor);
     }
 
-    public void addScheduleToCourse(Lecture lecture, Set<CourseScheduleTime> courseScheduleTimeSet) {
+    public void addScheduleToCourse(Lecture lecture, Set<LectureScheduleTime> lectureScheduleTimeSet) {
         if (lecture.getCourseScheduleTimeSet() != null) {
-            lecture.getCourseScheduleTimeSet().addAll(courseScheduleTimeSet);
+            lecture.getCourseScheduleTimeSet().addAll(lectureScheduleTimeSet);
         } else {
-            lecture.setCourseScheduleTimeSet(courseScheduleTimeSet);
+            lecture.setCourseScheduleTimeSet(lectureScheduleTimeSet);
         }
 
     }

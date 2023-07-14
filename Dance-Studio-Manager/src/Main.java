@@ -1,10 +1,5 @@
-import model.BankAccount;
-import model.Branch;
-import model.DanceCourse;
-import service.BankAccountService;
-import service.BranchService;
-import service.DanceCourseService;
-import service.InitialDataService;
+import model.*;
+import service.*;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -19,6 +14,9 @@ public class Main {
         DanceCourseService danceCourseService = new DanceCourseService();
         BankAccountService bankAccountService = new BankAccountService();
         BranchService branchService = new BranchService();
+        InstructorService instructorService = new InstructorService();
+        LectureService lectureService = new LectureService();
+        LectureScheduleService lectureScheduleService = new LectureScheduleService();
 
         List<Branch> branchList = InitialDataService.loadInitialDataForBranch();
 
@@ -47,6 +45,27 @@ public class Main {
 
 
         System.out.println(branchList);
+
+        Instructor instructor = instructorService.createInstructor("Lilo Stitch", 22, Sex.FEMALE,
+                new BigDecimal(12300));
+
+        danceCourseService.addInstructorToDanceCourse(danceCourse, instructor);
+
+        System.out.println(danceCourse);
+
+        Lecture lecture = lectureService.createCourse("Bachata", branchList.get(0), 10);
+
+        LectureScheduleTime lectureScheduleTime = lectureScheduleService.
+                createCourseSchedule(Day.MONDAY, "12.00-14.00");
+
+        Set<LectureScheduleTime> lectureScheduleTimeSet = new HashSet<>();
+        lectureScheduleTimeSet.add(lectureScheduleTime);
+
+        lectureService.addScheduleToCourse(lecture, lectureScheduleTimeSet);
+
+        danceCourseService.addCourseToDanceCourse(danceCourse, lecture);
+
+        System.out.println(danceCourse);
 
 
     }

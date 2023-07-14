@@ -16,6 +16,8 @@ public class DanceCourse {
 
     private List<Instructor> instructorList;
 
+    private List<Lecture> lectureList;
+
 
 
     public String getName() {
@@ -80,6 +82,14 @@ public class DanceCourse {
 
     public void setInstructorList(List<Instructor> instructorList) {
         this.instructorList = instructorList;
+    }
+
+    public List<Lecture> getCourseList() {
+        return lectureList;
+    }
+
+    public void setCourseList(List<Lecture> lectureList) {
+        this.lectureList = lectureList;
     }
 
     @Override

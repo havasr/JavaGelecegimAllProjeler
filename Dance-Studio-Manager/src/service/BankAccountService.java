@@ -6,7 +6,7 @@ import model.DanceCourse;
 import java.math.BigDecimal;
 
 public class BankAccountService {
-    public BankAccount createBankAccount(String bankName, String ibanNo, String companyName, BigDecimal amount){
+    public BankAccount createBankAccount(String bankName, String ibanNo, String companyName, BigDecimal amount) {
         BankAccount bankAccount = new BankAccount();
         bankAccount.setBankName(bankName);
         bankAccount.setIbanNo(ibanNo);
@@ -16,6 +16,13 @@ public class BankAccountService {
         return bankAccount;
     }
 
-
+    public BankAccount getBankAccountWithEnoughMoney(DanceCourse danceCourse, BigDecimal amount) {
+        for (BankAccount bankAccount : danceCourse.getBankAccountList()) {
+            if (bankAccount.getAmount().compareTo(amount) >= 0) {
+                return bankAccount;
+            }
+        }
+        return null;
+    }
 
 }

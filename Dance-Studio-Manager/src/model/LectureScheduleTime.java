@@ -1,6 +1,6 @@
 package model;
 
-public class CourseScheduleTime {
+public class LectureScheduleTime {
 
     private Day day;
 

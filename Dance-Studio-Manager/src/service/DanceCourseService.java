@@ -1,12 +1,7 @@
 package service;
 
-import model.BankAccount;
-import model.DanceCourse;
-import model.Instructor;
-import model.PaymentMovement;
+import model.*;
 
-import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DanceCourseService {
@@ -60,8 +55,56 @@ public class DanceCourseService {
         }
     }
 
-}
+    public void addInstructorToDanceCourse(DanceCourse danceCourse, Instructor instructor) {
+        BankAccountService bankAccountService = new BankAccountService();
+        PaymentMovementService paymentMovementService = new PaymentMovementService();
 
+        if (danceCourse.getBankAccountList() != null) {
+            BankAccount bankAccount = bankAccountService.
+                    getBankAccountWithEnoughMoney(danceCourse, instructor.getSalary());
+
+            if (bankAccount != null) {
+                bankAccount.setAmount(bankAccount.getAmount().subtract(instructor.getSalary()));
+                PaymentMovement paymentMovement = paymentMovementService.
+                        createPaymentMovement(bankAccount, instructor.getName() + " maaş ödemesi",
+                                MovementType.OUTCOME, instructor.getSalary());
+
+                addPaymentMovementToDanceCourse(danceCourse, paymentMovement);
+
+                if (danceCourse.getInstructorList() != null) {
+                    danceCourse.getInstructorList().add(instructor);
+                } else {
+                    danceCourse.setInstructorList(List.of(instructor));
+                }
+
+            } else {
+                System.out.println("Yeterli bakiyesi olmadığı için öğretmen alımı yapılamaz.");
+            }
+        } else {
+            System.out.println("Banka hessabı olmadığı için öğretmen alımı yapılamaz.");
+        }
+
+
+    }
+
+    public void addPaymentMovementToDanceCourse(DanceCourse danceCourse, PaymentMovement paymentMovement) {
+        if (danceCourse.getPaymentMovementList() != null) {
+            danceCourse.getPaymentMovementList().add(paymentMovement);
+        } else {
+            danceCourse.setPaymentMovementList(List.of(paymentMovement));
+        }
+    }
+
+
+    public  void addCourseToDanceCourse(DanceCourse danceCourse, Lecture lecture){
+        if (danceCourse.getCourseList() != null) {
+            danceCourse.getCourseList().add(lecture);
+        } else {
+            danceCourse.setCourseList(List.of(lecture));
+        }
+    }
+
+}
 /*
 public void createBankAccountToDanceCourse(DanceCourse danceCourse, BankAccount bankAccount){
 

@@ -1,14 +1,14 @@
 package service;
 
-import model.CourseScheduleTime;
+import model.LectureScheduleTime;
 import model.Day;
 
-public class CourseScheduleService {
-    public CourseScheduleTime createCourseSchedule(Day day, String time){
-        CourseScheduleTime courseScheduleTime = new CourseScheduleTime();
-        courseScheduleTime.setDay(day);
-        courseScheduleTime.setTime(time);
+public class LectureScheduleService {
+    public LectureScheduleTime createCourseSchedule(Day day, String time){
+        LectureScheduleTime lectureScheduleTime = new LectureScheduleTime();
+        lectureScheduleTime.setDay(day);
+        lectureScheduleTime.setTime(time);
 
-        return courseScheduleTime;
+        return lectureScheduleTime;
     }
 }

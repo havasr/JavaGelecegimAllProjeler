@@ -19,10 +19,3 @@ public class InstructorService {
     }
 }
 
-/*
-  private String name;
-    private List<Branch> branchList;
-    private int age;
-    private Sex sex;
-    private BigDecimal salary;
- */

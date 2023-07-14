@@ -3,7 +3,7 @@ package model;
 import java.util.List;
 import java.util.Set;
 
-public class Course {
+public class Lecture {
 
     private String name;
 
@@ -13,7 +13,7 @@ public class Course {
 
     private int capacity;
 
-    private Set<CourseScheduleTime> courseScheduleTimeSet;
+    private Set<LectureScheduleTime> lectureScheduleTimeSet;
 
     private List<Student> studentList;
 
@@ -49,12 +49,12 @@ public class Course {
         this.capacity = capacity;
     }
 
-    public Set<CourseScheduleTime> getCourseScheduleTimeSet() {
-        return courseScheduleTimeSet;
+    public Set<LectureScheduleTime> getCourseScheduleTimeSet() {
+        return lectureScheduleTimeSet;
     }
 
-    public void setCourseScheduleTimeSet(Set<CourseScheduleTime> courseScheduleTimeSet) {
-        this.courseScheduleTimeSet = courseScheduleTimeSet;
+    public void setCourseScheduleTimeSet(Set<LectureScheduleTime> lectureScheduleTimeSet) {
+        this.lectureScheduleTimeSet = lectureScheduleTimeSet;
     }
 
     public List<Student> getStudentList() {
@@ -72,7 +72,7 @@ public class Course {
                 ", instructor=" + instructor +
                 ", branch=" + branch +
                 ", capacity=" + capacity +
-                ", courseScheduleTimeSet=" + courseScheduleTimeSet +
+                ", courseScheduleTimeSet=" + lectureScheduleTimeSet +
                 ", studentList=" + studentList +
                 '}';
     }
