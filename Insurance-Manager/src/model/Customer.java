@@ -11,10 +11,6 @@ public class Customer {
     private ArrayList<PaymentMovement> paymentMovementList;
     private ArrayList<Vehicle> vehicleList;
 
-    public Customer(String name, CustomerTypeEnum customerTypeEnum) {
-        this.name = name;
-        this.customerTypeEnum = customerTypeEnum;
-    }
 
     public String getName() {
         return name;
@@ -70,5 +66,18 @@ public class Customer {
 
     public void setVehicleList(ArrayList<Vehicle> vehicleList) {
         this.vehicleList = vehicleList;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", customerTypeEnum=" + customerTypeEnum +
+                ", bankAccountList=" + bankAccountList +
+                ", insuranceRequestList=" + insuranceRequestList +
+                ", policyList=" + policyList +
+                ", paymentMovementList=" + paymentMovementList +
+                ", vehicleList=" + vehicleList +
+                '}';
     }
 }

@@ -10,14 +10,6 @@ public class Policy {
     private Date startDate;
     private Date endDate;
 
-    public Policy(InsuranceCompany insuranceCompany, Vehicle vehicle, BigDecimal price, Date startDate, Date endDate) {
-        this.insuranceCompany = insuranceCompany;
-        this.vehicle = vehicle;
-        this.price = price;
-        this.startDate = startDate;
-        this.endDate = endDate;
-    }
-
     public InsuranceCompany getInsuranceCompany() {
         return insuranceCompany;
     }
@@ -56,5 +48,16 @@ public class Policy {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Policy{" +
+                "insuranceCompany=" + insuranceCompany +
+                ", vehicle=" + vehicle +
+                ", price=" + price +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                '}';
     }
 }

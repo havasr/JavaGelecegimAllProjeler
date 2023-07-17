@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Proposal {
-    private InsuranceCompany company;
+    private InsuranceCompany insuranceCompany;
     private Vehicle vehicle;
     private BigDecimal offerPrice;
     private Date startDate;
@@ -13,15 +13,12 @@ public class Proposal {
     private boolean isApproved;
     private BigDecimal discountPrice;
 
-    public Proposal() {
+    public InsuranceCompany getInsuranceCompany() {
+        return insuranceCompany;
     }
 
-    public InsuranceCompany getCompany() {
-        return company;
-    }
-
-    public void setCompany(InsuranceCompany company) {
-        this.company = company;
+    public void setInsuranceCompany(InsuranceCompany insuranceCompany) {
+        this.insuranceCompany = insuranceCompany;
     }
 
     public Vehicle getVehicle() {
@@ -64,12 +61,12 @@ public class Proposal {
         this.expireDate = expireDate;
     }
 
-    public boolean isApproved() {
+    public boolean getIsApproved(){
         return isApproved;
     }
 
-    public void setApproved(boolean approved) {
-        isApproved = approved;
+    public void setIsApproved(boolean isApproved) {
+        this.isApproved = isApproved;
     }
 
     public BigDecimal getDiscountPrice() {
@@ -78,5 +75,19 @@ public class Proposal {
 
     public void setDiscountPrice(BigDecimal discountPrice) {
         this.discountPrice = discountPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Proposal{" +
+                "insuranceCompany=" + insuranceCompany +
+                ", vehicle=" + vehicle +
+                ", offerPrice=" + offerPrice +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", expireDate=" + expireDate +
+                ", isApproved=" + isApproved +
+                ", discountPrice=" + discountPrice +
+                '}';
     }
 }

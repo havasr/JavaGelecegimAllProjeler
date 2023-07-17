@@ -8,8 +8,6 @@ public class PaymentMovement {
     private String description;
     private MovementTypeEnum movementTypeEnum;
     private BigDecimal amount;
-
-
     public BankAccount getBankAccount() {
         return bankAccount;
     }
@@ -42,5 +40,13 @@ public class PaymentMovement {
         this.amount = amount;
     }
 
-
+    @Override
+    public String toString() {
+        return "PaymentMovement{" +
+                "bankAccount=" + bankAccount +
+                ", description='" + description + '\'' +
+                ", movementTypeEnum=" + movementTypeEnum +
+                ", amount=" + amount +
+                '}';
+    }
 }

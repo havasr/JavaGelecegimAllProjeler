@@ -1,9 +1,6 @@
 package service;
 
-import model.Agency;
-import model.BankAccount;
-import model.Insurance;
-import model.InsuranceCompany;
+import model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +32,26 @@ public class AgencyService {
             insuranceCompanyArrayList.add(insuranceCompany);
             agency.setInsuranceCompanyList(insuranceCompanyArrayList);
             //agency.setInsuranceCompanyList(List.of(insuranceCompany));
+        }
+    }
+
+    public void addCustomerToAgency(Agency agency, Customer customer){
+        if(agency.getCustomerList()!=null){
+            agency.getCustomerList().add(customer);
+        } else {
+            ArrayList<Customer> customerArrayList = new ArrayList<>();
+            customerArrayList.add(customer);
+            agency.setCustomerList(customerArrayList);
+        }
+    }
+
+    public void addPaymentMovementToAgency(Agency agency, PaymentMovement paymentMovement){
+        if(agency.getPaymentMovementList()!=null){
+            agency.getPaymentMovementList().add(paymentMovement);
+        } else {
+            ArrayList<PaymentMovement> paymentMovementArrayList = new ArrayList<>();
+            paymentMovementArrayList.add(paymentMovement);
+            agency.setPaymentMovementList(paymentMovementArrayList);
         }
     }
 }
