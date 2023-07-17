@@ -2,6 +2,7 @@ package service;
 
 import model.*;
 
+import java.util.List;
 import java.util.Set;
 
 public class LectureService {
@@ -32,6 +33,17 @@ public class LectureService {
 
     public void autoGenerateScheduleTimeForCourse(Lecture lecture, RepeatedTime repeatedTime, String time) {
 
+    }
+
+    public void addStudentToLecture(Lecture lecture, Student student){
+        if(lecture.getStudentList() == null || (lecture.getStudentList().size() < lecture.getCapacity())){
+
+            if (lecture.getStudentList() != null) {
+                lecture.getStudentList().add(student);
+            } else {
+            } lecture.setStudentList(List.of(student));
+
+        } else  System.out.println("Ders tam kapasitesine ulaştığı için öğrenci eklenemez.");
     }
 
 }

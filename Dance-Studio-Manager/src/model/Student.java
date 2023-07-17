@@ -37,11 +37,11 @@ public class Student {
         this.sex = sex;
     }
 
-    public boolean isPaid() {
+    public boolean getIsPaid() {
         return isPaid;
     }
 
-    public void setPaid(boolean paid) {
+    public void setIsPaid(boolean paid) {
         isPaid = paid;
     }
 
@@ -67,5 +67,18 @@ public class Student {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                ", isPaid=" + isPaid +
+                ", constractAmount=" + constractAmount +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                '}';
     }
 }

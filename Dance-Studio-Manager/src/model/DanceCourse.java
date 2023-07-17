@@ -19,6 +19,9 @@ public class DanceCourse {
     private List<Lecture> lectureList;
 
 
+    private List<Student> allStudentList;
+
+
 
     public String getName() {
         return name;
@@ -92,6 +95,22 @@ public class DanceCourse {
         this.lectureList = lectureList;
     }
 
+    public List<Lecture> getLectureList() {
+        return lectureList;
+    }
+
+    public void setLectureList(List<Lecture> lectureList) {
+        this.lectureList = lectureList;
+    }
+
+    public List<Student> getAllStudentList() {
+        return allStudentList;
+    }
+
+    public void setAllStudentList(List<Student> allStudentList) {
+        this.allStudentList = allStudentList;
+    }
+
     @Override
     public String toString() {
         return "DanceCourse{" +
@@ -103,6 +122,8 @@ public class DanceCourse {
                 ", bankAccountList=" + bankAccountList +
                 ", paymentMovementList=" + paymentMovementList +
                 ", instructorList=" + instructorList +
+                ", lectureList=" + lectureList +
+                ", allStudentList=" + allStudentList +
                 '}';
     }
 }

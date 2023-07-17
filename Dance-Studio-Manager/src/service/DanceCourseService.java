@@ -96,7 +96,7 @@ public class DanceCourseService {
     }
 
 
-    public  void addCourseToDanceCourse(DanceCourse danceCourse, Lecture lecture){
+    public  void addLectureToDanceCourse(DanceCourse danceCourse, Lecture lecture){
         if (danceCourse.getCourseList() != null) {
             danceCourse.getCourseList().add(lecture);
         } else {
@@ -104,7 +104,32 @@ public class DanceCourseService {
         }
     }
 
+  public void addStudentToCourse(DanceCourse danceCourse, Student student){
+      BankAccountService bankAccountService = new BankAccountService();
+      PaymentMovementService paymentMovementService = new PaymentMovementService();
+
+      BankAccount bankAccount = bankAccountService.getRandomBankAccount(danceCourse);
+      bankAccount.setAmount(student.getConstractAmount());
+      student.setIsPaid(true);
+
+    PaymentMovement paymentMovement = paymentMovementService.createPaymentMovement(bankAccount, student.getName(),
+            MovementType.INCOME, student.getConstractAmount());
+
+      if (danceCourse.getAllStudentList() != null) {
+          danceCourse.getAllStudentList().add(student);
+      } else {
+          danceCourse.setAllStudentList(List.of(student));
+      }
+
+      }
+
+
 }
+
+
+
+
+
 /*
 public void createBankAccountToDanceCourse(DanceCourse danceCourse, BankAccount bankAccount){
 

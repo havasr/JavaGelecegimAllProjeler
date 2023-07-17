@@ -8,6 +8,8 @@ import java.util.*;
 public class Main {
 
 
+    private static DanceCourseService danceCourseService;
+
     public static void main(String[] args) throws Exception {
 
 
@@ -17,6 +19,7 @@ public class Main {
         InstructorService instructorService = new InstructorService();
         LectureService lectureService = new LectureService();
         LectureScheduleService lectureScheduleService = new LectureScheduleService();
+        StudentService studentService = new StudentService();
 
         List<Branch> branchList = InitialDataService.loadInitialDataForBranch();
 
@@ -63,9 +66,20 @@ public class Main {
 
         lectureService.addScheduleToCourse(lecture, lectureScheduleTimeSet);
 
-        danceCourseService.addCourseToDanceCourse(danceCourse, lecture);
+        danceCourseService.addLectureToDanceCourse(danceCourse, lecture);
 
         System.out.println(danceCourse);
+
+        Student student = studentService.createStudent("Jorgen Atar", 23, Sex.MALE, false,
+                new BigDecimal(1500), new Date(12 / 12 / 2022), new Date(2023 - 07 - 17));
+
+        danceCourseService.addStudentToCourse(danceCourse, student);
+
+        System.out.println(danceCourse.getAllStudentList());
+
+        lectureService.addStudentToLecture(lecture, student);
+
+        System.out.println(lecture.getStudentList());
 
 
     }
