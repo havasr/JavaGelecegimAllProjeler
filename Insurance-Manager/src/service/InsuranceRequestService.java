@@ -25,8 +25,17 @@ public class InsuranceRequestService {
         }
     }
 
-    public void addPolicyToInsuranceRequest(InsuranceRequest insuranceRequest, Policy policy){
+    public void addProposalAsPolicyToInsuranceRequest(InsuranceRequest insuranceRequest, Proposal proposal){
+        Policy policy = new Policy();
+        ProposalService proposalService = new ProposalService();
+
+        policy.setInsuranceCompany(proposal.getInsuranceCompany());
+        policy.setVehicle(proposal.getVehicle());
+        policy.setPrice(proposalService.calculateDiscountedPrice(proposal));
+        policy.setStartDate(proposal.getStartDate());
+        policy.setEndDate(proposal.getEndDate());
+
         insuranceRequest.setPolicy(policy);
-            }
+      }
 }
 

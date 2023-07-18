@@ -3,10 +3,12 @@ package service;
 import model.BankAccount;
 import model.MovementTypeEnum;
 import model.PaymentMovement;
+import model.Proposal;
 
 import java.math.BigDecimal;
 
 public class PaymentMovementService {
+
 
     public PaymentMovement createPaymentMovement(BankAccount bankAccount, String description,
                                                  MovementTypeEnum movementTypeEnum, BigDecimal amount){
@@ -18,6 +20,8 @@ public class PaymentMovementService {
 
         return paymentMovement;
     }
+
+
 
 }
 

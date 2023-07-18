@@ -2,13 +2,16 @@ package service;
 
 import model.*;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerService {
     ProposalService proposalService = new ProposalService();
     PaymentMovementService paymentMovementService = new PaymentMovementService();
+    InsuranceRequestService insuranceRequestService = new InsuranceRequestService();
+    AgencyService agencyService = new AgencyService();
+    BankAccountService bankAccountService = new BankAccountService();
+    InsuranceCompanyService insuranceCompanyService = new InsuranceCompanyService();
 
     public Customer createCustomer(String name, CustomerTypeEnum customerTypeEnum) {
         Customer customer = new Customer();
@@ -24,7 +27,6 @@ public class CustomerService {
             ArrayList<BankAccount> bankAccountArrayList = new ArrayList<>();
             bankAccountArrayList.add(bankAccount);
             customer.setBankAccountList(bankAccountArrayList);
-            //customer.setBankAccountList(List.of(bankAccount));
         }
     }
 
@@ -68,36 +70,60 @@ public class CustomerService {
         }
     }
 
-    public void acceptProposal(Customer customer, Proposal proposal, InsuranceRequest insuranceRequest) {
+
+    public void acceptProposal(Agency agency, Customer customer, Proposal proposal, InsuranceRequest insuranceRequest) {
         List<InsuranceRequest> insuranceRequestList = customer.getInsuranceRequestList();
         for (InsuranceRequest insuranceRequest1 : insuranceRequestList) {
             if (insuranceRequest1.equals(insuranceRequest)) {
                 for (Proposal proposal1 : insuranceRequest1.getProposalList()) {
                     if (proposal1.equals(proposal)) {
-                        BankAccount bankAccount = checkBankAccount(customer, proposalService
-                                .calculateDiscountedPrice(proposal));
+                        //checkBankAccount her yerde kullanilabilsin diye BankService'e tasindi.
+                        BankAccount bankAccount = bankAccountService.checkBankAccount(customer.getBankAccountList(),
+                                proposalService.calculateDiscountedPrice(proposal));
                         if (bankAccount != null) {
-                            bankAccount.setAmount(bankAccount.getAmount().subtract(proposalService
-                                    .calculateDiscountedPrice(proposal)));
 
+                            //Müşteri hesabindan ödemeyi yapıyor, PaymentMovement oluşuyor, PaymentMovement müşteriye ekleniyor.
+                            bankAccount.setAmount(
+                                    bankAccount.getAmount().subtract(proposalService.calculateDiscountedPrice(proposal)));
+
+                            PaymentMovement paymentMovement = paymentMovementService.createPaymentMovement(bankAccount,
+                                    proposal.getVehicle() + " Policy Payment", MovementTypeEnum.OUTCOME,
+                                    proposalService.calculateDiscountedPrice(proposal));
+
+                            addPaymentMovementToCustomer(customer, paymentMovement);
+
+                            //Agency parametre olarak eklendi, Acenta ödemeyi alıyor, Acenta Şirkete ödeme yapıyor
+
+                            agencyService.transferPolicyPayment(agency, proposal);
+
+                            //Şirket ödemeyi alıyor, Şirket komisyonu Acentaya gönderiyor
+
+                            insuranceCompanyService.policyPaymentToInsuranceCompany(proposal.getInsuranceCompany(), proposal);
+
+                            //Acenta komisyonu alıyor, PaymentMovement oluştur-ekle
+
+                            agencyService.addCommissionToAgency(agency, proposal);
+
+                            //Proposal approved, Poliçe InsuranceRequeste ekleniyor.
+
+                            proposal.setIsApproved(true);
+                            insuranceRequestService.addProposalAsPolicyToInsuranceRequest(insuranceRequest, proposal);
+
+                            System.out.println("Congratulations you're policy has been approved.");
+
+                        } else {
+                            System.out.println("Insufficient balance for policy.");
                         }
-                        proposal1.setIsApproved(true);
+
+                    } else {
+                        System.out.println("Proposal does not belong to this insurance request.");
                     }
                 }
+            } else {
+                System.out.println("Insurance request does not belong to this customer.");
             }
         }
     }
 
-    public BankAccount checkBankAccount(Customer customer, BigDecimal amount) {
-        List<BankAccount> bankAccountList = customer.getBankAccountList();
-        for (BankAccount bankAccount : bankAccountList) {
-            if (bankAccount.getAmount().compareTo(amount) >= 0) {
-                return bankAccount;
-            } else {
-                return null;
-            }
-        }
-        return null;
-    }
 
 }

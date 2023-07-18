@@ -2,6 +2,7 @@ package service;
 
 import model.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DanceCourseService {
@@ -26,9 +27,9 @@ public class DanceCourseService {
                 danceCourse.getBankAccountList().add(bankAccount);
             }
         } else {
-            // List<BankAccount> bankAccountList = new ArrayList<>();
-            // bankAccountList.add(bankAccount);
-            danceCourse.setBankAccountList(List.of(bankAccount));
+           List<BankAccount> bankAccountList = new ArrayList<>();
+           bankAccountList.add(bankAccount);
+           danceCourse.setBankAccountList(bankAccountList);
         }
     }
 

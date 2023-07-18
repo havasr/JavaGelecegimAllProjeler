@@ -4,6 +4,7 @@ import model.BankAccount;
 import model.DanceCourse;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Random;
 
 public class BankAccountService {
@@ -26,12 +27,16 @@ public class BankAccountService {
         return null;
     }
 
+
+
     public BankAccount getRandomBankAccount(DanceCourse danceCourse){
         Random random = new Random();
         BankAccount randomBankAccount = danceCourse.getBankAccountList().
                 get(random.nextInt(danceCourse.getBankAccountList().size()));
         return randomBankAccount;
     }
+
+
 
 
 }
