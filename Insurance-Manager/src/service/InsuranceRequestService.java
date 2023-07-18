@@ -9,9 +9,8 @@ import java.util.ArrayList;
 
 public class InsuranceRequestService {
 
-    public InsuranceRequest createInsuranceRequest(Policy policy, Vehicle vehicle){
+    public InsuranceRequest createInsuranceRequest(Vehicle vehicle){
         InsuranceRequest insuranceRequest = new InsuranceRequest();
-        insuranceRequest.setPolicy(policy);
         insuranceRequest.setVehicle(vehicle);
         return  insuranceRequest;
     }
@@ -25,5 +24,9 @@ public class InsuranceRequestService {
             insuranceRequest.setProposalList(proposalArrayList);
         }
     }
+
+    public void addPolicyToInsuranceRequest(InsuranceRequest insuranceRequest, Policy policy){
+        insuranceRequest.setPolicy(policy);
+            }
 }
 

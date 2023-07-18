@@ -108,12 +108,7 @@ public class DanceCourseService {
       BankAccountService bankAccountService = new BankAccountService();
       PaymentMovementService paymentMovementService = new PaymentMovementService();
 
-      BankAccount bankAccount = bankAccountService.getRandomBankAccount(danceCourse);
-      bankAccount.setAmount(student.getConstractAmount());
-      student.setIsPaid(true);
-
-    PaymentMovement paymentMovement = paymentMovementService.createPaymentMovement(bankAccount, student.getName(),
-            MovementType.INCOME, student.getConstractAmount());
+      makePaymentFromStudentToCourse(danceCourse, student);
 
       if (danceCourse.getAllStudentList() != null) {
           danceCourse.getAllStudentList().add(student);
@@ -122,6 +117,17 @@ public class DanceCourseService {
       }
 
       }
+
+public void makePaymentFromStudentToCourse(DanceCourse danceCourse, Student student){
+    BankAccountService bankAccountService = new BankAccountService();
+    PaymentMovementService paymentMovementService = new PaymentMovementService();
+
+    BankAccount bankAccount = bankAccountService.getRandomBankAccount(danceCourse);
+    bankAccount.setAmount(student.getConstractAmount());
+    student.setIsPaid(true);
+    PaymentMovement paymentMovement = paymentMovementService.createPaymentMovement(bankAccount, student.getName(),
+            MovementType.INCOME, student.getConstractAmount());
+}
 
 
 }

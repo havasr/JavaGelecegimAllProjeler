@@ -20,7 +20,6 @@ public class AgencyService {
             ArrayList<BankAccount> bankAccountArrayList = new ArrayList<>();
             bankAccountArrayList.add(bankAccount);
             agency.setBankAccountList(bankAccountArrayList);
-            //agency.setBankAccountList(List.of(bankAccount));
         }
             }
 
@@ -31,7 +30,6 @@ public class AgencyService {
             ArrayList<InsuranceCompany> insuranceCompanyArrayList = new ArrayList<>();
             insuranceCompanyArrayList.add(insuranceCompany);
             agency.setInsuranceCompanyList(insuranceCompanyArrayList);
-            //agency.setInsuranceCompanyList(List.of(insuranceCompany));
         }
     }
 
