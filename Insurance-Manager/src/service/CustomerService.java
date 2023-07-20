@@ -73,11 +73,10 @@ public class CustomerService {
 
     public void acceptProposal(Agency agency, Customer customer, Proposal proposal, InsuranceRequest insuranceRequest) {
         List<InsuranceRequest> insuranceRequestList = customer.getInsuranceRequestList();
-        for (InsuranceRequest insuranceRequest1 : insuranceRequestList) {
-            if (insuranceRequest1.equals(insuranceRequest)) {
-                for (Proposal proposal1 : insuranceRequest1.getProposalList()) {
+        for (InsuranceRequest request : insuranceRequestList) {
+            if (request.equals(insuranceRequest)) {
+                for (Proposal proposal1 : request.getProposalList()) {
                     if (proposal1.equals(proposal)) {
-                        //checkBankAccount her yerde kullanilabilsin diye BankService'e tasindi.
                         BankAccount bankAccount = bankAccountService.checkBankAccount(customer.getBankAccountList(),
                                 proposalService.calculateDiscountedPrice(proposal));
                         if (bankAccount != null) {

@@ -1,20 +1,21 @@
 package model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Accident {
-    private Date accidentDate;
+    private LocalDate accidentDate;
     private String description;
     private BigDecimal damagePrice;
     private int failureRate;
 
 
-    public Date getAccidentDate() {
+    public LocalDate getAccidentDate() {
         return accidentDate;
     }
 
-    public void setAccidentDate(Date accidentDate) {
+    public void setAccidentDate(LocalDate accidentDate) {
         this.accidentDate = accidentDate;
     }
 

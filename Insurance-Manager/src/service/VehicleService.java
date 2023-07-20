@@ -4,6 +4,7 @@ import model.Accident;
 import model.ColorTypeEnum;
 import model.Vehicle;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class VehicleService {
@@ -30,4 +31,15 @@ public class VehicleService {
         }
     }
 
+    public BigDecimal totalOfAccidentDamage(Vehicle vehicle){
+        BigDecimal total = BigDecimal.ZERO;
+
+        if(vehicle.getAccidentList()!=null){
+            for (Accident accident : vehicle.getAccidentList()) {
+                total = total.add(accident.getDamagePrice());
+            }
+            } else {
+                return BigDecimal.ZERO;
+        } return total;
+    }
 }

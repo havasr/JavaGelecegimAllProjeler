@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2564c10b-1216-4f5b-95e2-97423161658c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Dance-Studio-Manager/src/service/BankAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Dance-Studio-Manager/src/service/BankAccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Dance-Studio-Manager/src/service/DanceCourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Dance-Studio-Manager/src/service/DanceCourseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Policy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Policy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/AgencyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/AgencyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/BankAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/BankAccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Accident.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Accident.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/AccidentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/AccidentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/InsuranceCompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/InsuranceCompanyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/InsuranceRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/InsuranceRequestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/PaymentMovementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/PaymentMovementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/PolicyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/PolicyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/ProposalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ProposalService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/VehicleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/VehicleService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,13 +34,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "full.screen.before.presentation.mode": "false",
+    "last_opened_file_path": "C:/Users/PC/Downloads/Allianz-Patika/PatikaJavaOdevleri/Ucak-Bileti",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -60,5 +60,8 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Insurance_Manager$Main.ic" NAME="Main Coverage Results" MODIFIED="1689752448622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

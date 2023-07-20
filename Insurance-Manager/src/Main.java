@@ -4,6 +4,7 @@ import service.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -18,6 +19,7 @@ public class Main {
         VehicleService vehicleService = new VehicleService();
         InsuranceRequestService insuranceRequestService = new InsuranceRequestService();
         ProposalService proposalService = new ProposalService();
+        AccidentService accidentService = new AccidentService();
 
         Agency manAgency = agencyService.createAgency("Man Agency");
 
@@ -76,6 +78,7 @@ public class Main {
         System.out.println(AllianzBankAccount.getAmount());
         System.out.println(manBankAccount.getAmount());
         System.out.println(customer1BankAccount.getAmount());
+        System.out.println("------------------------------------------------------------------------------------");
 
         customerService.acceptProposal(manAgency, customer1, proposal1, insuranceRequest1);
         customerService.addPolicyToCustomer(customer1, insuranceRequest1.getPolicy());
@@ -86,6 +89,18 @@ public class Main {
         System.out.println(customer1BankAccount.getAmount());
 
         System.out.println(manAgency.getPaymentMovementList());
+
+        System.out.println("------------------------------------------------------------------------------------");
+
+        LocalDate accidentDate = LocalDate.now();
+        Accident accident1 = accidentService.createAccident( accidentDate, vehicle2 + " Accident", new BigDecimal(5000), 6 );
+        vehicleService.addAccidentToVehicle(vehicle2, accident1);
+
+        Proposal proposal3 =
+                proposalService.createProposal(allianzInsuranceCompany, vehicle2, BigDecimal.valueOf(10000), startDate,
+                        endDate, expireDate, new BigDecimal(1000));
+        System.out.println(proposal3);
+
 
     }
 }
