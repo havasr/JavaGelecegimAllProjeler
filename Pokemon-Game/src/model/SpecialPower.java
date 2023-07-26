@@ -37,10 +37,6 @@ public class SpecialPower {
 
     @Override
     public String toString() {
-        return "SpecialPower{" +
-                "name='" + name + '\'' +
-                ", extraDamage=" + extraDamage +
-                ", remainRight=" + remainRight +
-                '}';
+        return name + " (Extra Damage:" + extraDamage + ")";
     }
 }

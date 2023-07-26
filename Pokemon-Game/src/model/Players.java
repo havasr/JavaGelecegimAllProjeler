@@ -8,7 +8,7 @@ public class Players {
     public Players(String name, Character character, boolean isWinner) {
         this.name = name;
         this.character = character;
-        this.isWinner = isWinner;
+        this.isWinner = false;
     }
 
     public String getName() {

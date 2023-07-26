@@ -1,16 +1,33 @@
 package model;
-
 import java.util.ArrayList;
 
 public class Character {
+    private int id;
     private String name;
     private SpecialPower specialPower;
-    private ArrayList<Pokemon> PokemonList;
+    private ArrayList<Pokemon> pokemonList;
 
-    public Character(String name, SpecialPower specialPower, ArrayList<Pokemon> pokemonList) {
+    public Character(int id, String name, SpecialPower specialPower, ArrayList<Pokemon> pokemonList) {
+        this.id = id;
         this.name = name;
         this.specialPower = specialPower;
-        this.PokemonList = pokemonList;
+        this.pokemonList = pokemonList;
+    }
+
+    //Null checke gerek yok cunku bos liste ekliyoruz
+    public Character(int id, String name, SpecialPower specialPower) {
+        this.id = id;
+        this.name = name;
+        this.specialPower = specialPower;
+        this.pokemonList = new ArrayList<>();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -30,19 +47,16 @@ public class Character {
     }
 
     public ArrayList<Pokemon> getPokemonList() {
-        return PokemonList;
+        return pokemonList;
     }
 
     public void setPokemonList(ArrayList<Pokemon> pokemonList) {
-        PokemonList = pokemonList;
+        this.pokemonList = pokemonList;
     }
 
     @Override
     public String toString() {
-        return "Character{" +
-                "name='" + name + '\'' +
-                ", specialPower=" + specialPower +
-                ", PokemonList=" + PokemonList +
-                '}';
+        return  id + "- Name: " + name + '\n' +
+                "SpecialPower: " + specialPower + '\n';
     }
 }

@@ -1,18 +1,29 @@
 package model;
 
 public class Pokemon {
+
+    private int id;
     private String name;
     private int health;
     private int damage;
     private TypeEnum type;
     private SpecialPower specialPower;
 
-    public Pokemon(String name, int health, int damage, TypeEnum type, SpecialPower specialPower) {
+    public Pokemon(int id, String name, int health, int damage, TypeEnum type, SpecialPower specialPower) {
+        this.id = id;
         this.name = name;
         this.health = health;
         this.damage = damage;
         this.type = type;
         this.specialPower = specialPower;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -47,13 +58,21 @@ public class Pokemon {
         this.type = type;
     }
 
+    public SpecialPower getSpecialPower() {
+        return specialPower;
+    }
+
+    public void setSpecialPower(SpecialPower specialPower) {
+        this.specialPower = specialPower;
+    }
+
     public int specialAttack(){
         if (this.specialPower.getRemainRight()>0){
             this.specialPower.setRemainRight(this.specialPower.getRemainRight()-1);
             return this.damage + this.specialPower.getExtraDamage();
         } else {
             System.out.println("You cannot use special power.");
-            return this.damage;
+            return 0;
         }
     }
 
