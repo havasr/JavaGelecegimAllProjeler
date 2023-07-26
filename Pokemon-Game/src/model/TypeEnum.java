@@ -25,9 +25,6 @@ public enum TypeEnum {
 
     @Override
     public String toString() {
-        return "TypeEnum{" +
-                "name='" + name + '\'' +
-                ", weaknessWeather='" + weaknessWeather + '\'' +
-                '}';
+        return name + "(Weakness Weather: " + weaknessWeather + ")";
     }
 }

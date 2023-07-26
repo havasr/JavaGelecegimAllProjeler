@@ -1,11 +1,11 @@
 package model;
 
-public class Players {
+public class Player {
     private String name;
     private Character character;
     private boolean isWinner;
 
-    public Players(String name, Character character, boolean isWinner) {
+    public Player(String name, Character character, boolean isWinner) {
         this.name = name;
         this.character = character;
         this.isWinner = false;

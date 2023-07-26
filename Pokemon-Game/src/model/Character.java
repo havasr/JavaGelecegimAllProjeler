@@ -22,6 +22,9 @@ public class Character {
         this.pokemonList = new ArrayList<>();
     }
 
+    public Character() {
+    }
+
     public int getId() {
         return id;
     }

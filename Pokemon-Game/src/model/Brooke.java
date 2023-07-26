@@ -11,4 +11,5 @@ public class Brooke extends Character{
     public Brooke(int id, String name, SpecialPower specialPower) {
         super(id, name, specialPower);
     }
+
 }

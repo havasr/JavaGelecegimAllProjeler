@@ -1,10 +1,10 @@
 package service;
 import model.Character;
-import model.Players;
+import model.Player;
 
 public class PlayerService {
-    public Players createPlayer(String name, Character character){
-        return new Players(name, character, false);
+    public Player createPlayer(String name, Character character){
+        return new Player(name, character, false);
 
     }
 }

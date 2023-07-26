@@ -18,6 +18,9 @@ public class Pokemon {
         this.specialPower = specialPower;
     }
 
+    public Pokemon() {
+    }
+
     public int getId() {
         return id;
     }
@@ -78,11 +81,9 @@ public class Pokemon {
 
     @Override
     public String toString() {
-        return "Pokemon{" +
-                "name='" + name + '\'' +
-                ", health=" + health +
-                ", damage=" + damage +
-                ", type=" + type +
-                '}';
+        return id + "- Name: " + name + "\n" +
+                "Health: " + health +
+                ", Damage: " + damage +
+                ", Type: " + type;
     }
 }

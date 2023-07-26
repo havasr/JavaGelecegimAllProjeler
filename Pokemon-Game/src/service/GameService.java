@@ -1,6 +1,5 @@
 package service;
-
-import model.Players;
+import model.Player;
 import model.Pokemon;
 import model.Weather;
 
@@ -10,7 +9,7 @@ import java.util.Random;
 public class GameService {
     LoadService loadService = new LoadService();
 
-    public void attack(Players attacker, Players defender, boolean isPokeSpecialAttack, boolean isCharSpecialAttack) {
+    public void attack(Player attacker, Player defender, boolean isPokeSpecialAttack, boolean isCharSpecialAttack) {
         Pokemon attackingPokemon = attacker.getCharacter().getPokemonList().get(0);
         Pokemon defendingPokemon = defender.getCharacter().getPokemonList().get(0);
 
@@ -58,7 +57,7 @@ public class GameService {
         defendingPokemon.setHealth(defendingPokemon.getHealth() - damage);
     }
 
-    public boolean healthCheck(Players player) {
+    public boolean healthCheck(Player player) {
         if (player.getCharacter().getPokemonList().get(0).getHealth() > 0) {
             System.out.println(player.toString());
             System.out.println("Game continues.");
@@ -77,6 +76,11 @@ public class GameService {
         Weather weather = weatherList.get(random.nextInt(weatherList.size()));
         System.out.println("The weather is " + weather + " today!");
         return weather;
+    }
+
+    public int chooseBegginer(){
+        Random random = new Random();
+        return random.nextInt(2) + 1;
     }
 
 
@@ -104,5 +108,9 @@ kaybedenin pokemonunu 100 health ile kendine aliyor
 
 - Pokemonlar secildikce listeden remove ediyoruz - aynisi secilmesin diye
 
+Kalanlar
+- Listelerin numaralandirmasini degistirme
+- Oyuna baslamak icin 1, Cikmak icin 2 tercihi
+- Attack loopu olusturma
 
  */
