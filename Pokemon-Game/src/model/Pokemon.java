@@ -81,7 +81,7 @@ public class Pokemon {
 
     @Override
     public String toString() {
-        return id + "- Name: " + name + "\n" +
+        return "- Name: " + name + "\n" +
                 "Health: " + health +
                 ", Damage: " + damage +
                 ", Type: " + type;

@@ -59,7 +59,7 @@ public class Character {
 
     @Override
     public String toString() {
-        return  id + "- Name: " + name + '\n' +
+        return  "- Name: " + name + '\n' +
                 "SpecialPower: " + specialPower + '\n';
     }
 }

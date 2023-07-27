@@ -59,12 +59,8 @@ public class GameService {
 
     public boolean healthCheck(Player player) {
         if (player.getCharacter().getPokemonList().get(0).getHealth() > 0) {
-            System.out.println(player.toString());
-            System.out.println("Game continues.");
             return true;
         } else {
-            System.out.println(player.toString());
-            System.out.println(player.getName() + " loses the game.");
             return false;
         }
 
@@ -74,15 +70,24 @@ public class GameService {
         ArrayList<Weather> weatherList = loadService.loadWeather();
         Random random = new Random();
         Weather weather = weatherList.get(random.nextInt(weatherList.size()));
-        System.out.println("The weather is " + weather + " today!");
+        System.out.println("\nThe weather is " + weather + " today!");
         return weather;
     }
 
-    public int chooseBegginer(){
+    public boolean isBeginner(Player player1){
         Random random = new Random();
-        return random.nextInt(2) + 1;
+        int beginner = random.nextInt(2) + 1;
+        if (beginner==1){
+            return true;
+        } else return false;
     }
 
+
+    public void switchRoles(Player[] players) {
+        Player temp = players[0];
+        players[0] = players[1];
+        players[1] = temp;
+    }
 
 }
 
@@ -107,10 +112,5 @@ kaybedenin pokemonunu 100 health ile kendine aliyor
 - 2. turda bitiyor
 
 - Pokemonlar secildikce listeden remove ediyoruz - aynisi secilmesin diye
-
-Kalanlar
-- Listelerin numaralandirmasini degistirme
-- Oyuna baslamak icin 1, Cikmak icin 2 tercihi
-- Attack loopu olusturma
 
  */
