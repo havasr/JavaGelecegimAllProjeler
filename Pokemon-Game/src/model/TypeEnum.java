@@ -5,8 +5,8 @@ public enum TypeEnum {
     WATER("WATER", "Harsh Sunny"),
     GRASS("GRASS", "Stormy"),
     ELECTRIC("ELECTRIC", "Snowy"),
-    WING("WING", "Rainy"),
-    EARTH("EARTH", "Stormy");
+    NORMAL("NORMAL", "Stormy"),
+    POISON("POISON", "Rainy");
 
     private String name;
     private String weaknessWeather;

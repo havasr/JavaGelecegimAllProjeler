@@ -1,6 +1,8 @@
-package model;
+package model.SpecialPowers;
 
-public class Fire extends SpecialPower{
+import model.SpecialPowerBase;
+
+public class Fire extends SpecialPowerBase {
 
     public Fire(String name, int extraDamage, int remainRight) {
         super(name, extraDamage, remainRight);

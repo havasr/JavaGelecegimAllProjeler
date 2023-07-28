@@ -1,24 +1,24 @@
 package model;
 
-public class Pokemon {
+public class PokemonBase {
 
     private int id;
     private String name;
     private int health;
     private int damage;
     private TypeEnum type;
-    private SpecialPower specialPower;
+    private SpecialPowerBase specialPowerBase;
 
-    public Pokemon(int id, String name, int health, int damage, TypeEnum type, SpecialPower specialPower) {
+    public PokemonBase(int id, String name, int health, int damage, TypeEnum type, SpecialPowerBase specialPowerBase) {
         this.id = id;
         this.name = name;
         this.health = health;
         this.damage = damage;
         this.type = type;
-        this.specialPower = specialPower;
+        this.specialPowerBase = specialPowerBase;
     }
 
-    public Pokemon() {
+    public PokemonBase() {
     }
 
     public int getId() {
@@ -61,18 +61,18 @@ public class Pokemon {
         this.type = type;
     }
 
-    public SpecialPower getSpecialPower() {
-        return specialPower;
+    public SpecialPowerBase getSpecialPower() {
+        return specialPowerBase;
     }
 
-    public void setSpecialPower(SpecialPower specialPower) {
-        this.specialPower = specialPower;
+    public void setSpecialPower(SpecialPowerBase specialPowerBase) {
+        this.specialPowerBase = specialPowerBase;
     }
 
     public int specialAttack(){
-        if (this.specialPower.getRemainRight()>0){
-            this.specialPower.setRemainRight(this.specialPower.getRemainRight()-1);
-            return this.damage + this.specialPower.getExtraDamage();
+        if (this.specialPowerBase.getRemainRight()>0){
+            this.specialPowerBase.setRemainRight(this.specialPowerBase.getRemainRight()-1);
+            return this.damage + this.specialPowerBase.getExtraDamage();
         } else {
             System.out.println("You cannot use special power.");
             return 0;
@@ -84,6 +84,7 @@ public class Pokemon {
         return "- Name: " + name + "\n" +
                 "Health: " + health +
                 ", Damage: " + damage +
+                ", Special Power: " + specialPowerBase +
                 ", Type: " + type;
     }
 }

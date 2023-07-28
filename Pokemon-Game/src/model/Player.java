@@ -2,12 +2,12 @@ package model;
 
 public class Player {
     private String name;
-    private Character character;
+    private CharacterBase characterBase;
     private boolean isWinner;
 
-    public Player(String name, Character character, boolean isWinner) {
+    public Player(String name, CharacterBase characterBase, boolean isWinner) {
         this.name = name;
-        this.character = character;
+        this.characterBase = characterBase;
         this.isWinner = false;
     }
 
@@ -22,12 +22,12 @@ public class Player {
         this.name = name;
     }
 
-    public Character getCharacter() {
-        return character;
+    public CharacterBase getCharacter() {
+        return characterBase;
     }
 
-    public void setCharacter(Character character) {
-        this.character = character;
+    public void setCharacter(CharacterBase characterBase) {
+        this.characterBase = characterBase;
     }
 
     public boolean isWinner() {
@@ -42,7 +42,7 @@ public class Player {
     public String toString() {
         return "Players{" +
                 "name='" + name + '\'' +
-                ", character=" + character +
+                ", character=" + characterBase +
                 ", isWinner=" + isWinner +
                 '}';
     }

@@ -1,11 +1,11 @@
 package model;
 
-public class SpecialPower {
+public class SpecialPowerBase {
     private String name;
     private int extraDamage;
     private int remainRight;
 
-    public SpecialPower(String name, int extraDamage, int remainRight) {
+    public SpecialPowerBase(String name, int extraDamage, int remainRight) {
         this.name = name;
         this.extraDamage = extraDamage;
         this.remainRight = remainRight;

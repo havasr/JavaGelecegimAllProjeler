@@ -1,17 +1,17 @@
 package service;
 
-import model.Pokemon;
+import model.PokemonBase;
 
 import java.util.ArrayList;
 
 public class PokemonService {
-    public Pokemon choosePokemon(ArrayList<Pokemon> pokemonList, int id){
-        Pokemon pokemon = new Pokemon();
-        if(id<=pokemonList.size()){
-            pokemon = pokemonList.get(id - 1);
+    public PokemonBase choosePokemon(ArrayList<PokemonBase> pokemonBaseList, int id){
+        PokemonBase pokemonBase = new PokemonBase();
+        if(id<= pokemonBaseList.size()){
+            pokemonBase = pokemonBaseList.get(id - 1);
         } else {
             System.out.println("Wrong input.");
         }
-        return pokemon;
+        return pokemonBase;
     }
 }
