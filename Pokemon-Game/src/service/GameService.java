@@ -89,28 +89,18 @@ public class GameService {
         players[1] = temp;
     }
 
+    public Pokemon chooseWeakestPokemon(ArrayList<Pokemon> pokemonList){
+            Pokemon weakestPokemon = pokemonList.get(0);
+            int weakestDamage = pokemonList.get(0).getDamage();
+
+            for (int i = 0; i < pokemonList.size(); i++){
+            if (pokemonList.get(i).getDamage() < weakestDamage){
+                weakestDamage = pokemonList.get(i).getDamage();
+                weakestPokemon = pokemonList.get(i);
+            }
+        }
+            return weakestPokemon;
+    }
 }
 
-/*
 
-- Hava durumu class olustur,
-TypeEnum ustunden her pokemona weather-weakness tanimla
-(ne zarar veriyor, ne kadar veriyor?)
-
-- Scanner la iki player tanimliyoruz --> Pokemonunu seciyor
-- Oyuna baslamak icin 1, Cikmak icin 2 tercihi
-- Random bir sekilde kimin baslayacagini sec
-- Her sirada once random hava durumu ver
-- Her attack sonrasi healthCheck, biri olene kadar
-
-- 2. seviyeye gec
-- Kazanan kendi pokemonunu son health degerinde tutuyor,
-kaybedenin pokemonunu 100 health ile kendine aliyor
-- Kaybeden kisiye pokemonlardan damage degeri en dusuk olani tanimliyoruz
-- Kazanan kisi 2. roundda oynatmak istedigi pokemonu seciyor
-- Her attack sonrasi healthCheck, biri olene kadar
-- 2. turda bitiyor
-
-- Pokemonlar secildikce listeden remove ediyoruz - aynisi secilmesin diye
-
- */
